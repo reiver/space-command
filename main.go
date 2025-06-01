@@ -55,7 +55,7 @@ func main() {
 			fmt.Printf("Read message of %d bytes long from %v\n", n, srcAddr)
 			var p []byte = buffer[:n]
 
-			fmt.Printf("%q\n", p)
+			fmt.Printf("%q (%d)\n", p, len(p))
 		}
 
 	}
