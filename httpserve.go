@@ -7,6 +7,7 @@ import (
 
 	"github.com/reiver/space-command/srv/http"
 	"github.com/reiver/space-command/srv/log"
+	_ "github.com/reiver/space-command/www"
 )
 
 func httpserve(tcpaddr string) <-chan error {
