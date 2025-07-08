@@ -33,7 +33,8 @@ func main() {
 
 	var httpdaemon <-chan error
 	{
-		httpdaemon = httpserve(":80")
+		const httptcpaddr string = ":80"
+		httpdaemon = httpserve(httptcpaddr)
 	}
 
 	{
