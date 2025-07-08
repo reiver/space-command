@@ -31,13 +31,18 @@ func main() {
 		beacondaemon = beaconserve(&multicastUDPAddress)
 	}
 
+	var httpdaemon <-chan error
+	{
+		httpdaemon = httpserve(":80")
+	}
+
 	{
 		var err error
 		select {
 		case err = <-beacondaemon:
 			log.Error("beacon-daemon lost: ", err)
-//		case err = <-httpdaemon:
-//			log.Errorf("http-daemon lost: %s", err)
+		case err = <-httpdaemon:
+			log.Errorf("http-daemon lost: %s", err)
 		}
 		panic(err)
 	}
