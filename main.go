@@ -3,6 +3,8 @@ package main
 import (
 	"net"
 
+	"github.com/reiver/space-base/lib/beacon"
+
 	"github.com/reiver/space-command/cfg"
 	"github.com/reiver/space-command/srv/log"
 )
@@ -16,11 +18,11 @@ func main() {
 	var beacondaemon <-chan error
 	{
 		// 239.83.80.67 (0xEF535043)
-		var multicastIPAddress net.IP = net.IPv4(239, 'S', 'P', 'C')
+		var multicastIPAddress net.IP = spacebeacon.MulticastIPAddress()
 		log.Debug("(beacon) multicast ip-address: ", multicastIPAddress)
 
 		// 21328 (0x5350)
-		var udpPort uint16 = (uint16('S') << 8) | uint16('P')
+		var udpPort uint16 = spacebeacon.UDPPort
 		log.Debugf("(beacon) UDP port: %v (0x%X)", udpPort, udpPort)
 
 		var multicastUDPAddress = net.UDPAddr{

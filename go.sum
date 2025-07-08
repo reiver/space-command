@@ -16,3 +16,5 @@ github.com/reiver/go-pathmatch v1.0.1-0.20240802004530-0dc31d85afa8 h1:3mxWa4FEL
 github.com/reiver/go-pathmatch v1.0.1-0.20240802004530-0dc31d85afa8/go.mod h1:SveMAOrJP7XCL3UlazOjQdKNCGG2T/E1zE6gDHfs3cA=
 github.com/reiver/go-pathmux v0.0.0-20250113184313-b773d1ae8cb7 h1:LczWwFGEC7C+NdxR1LseZ1RPwRLqnUibDTcuf13qGNA=
 github.com/reiver/go-pathmux v0.0.0-20250113184313-b773d1ae8cb7/go.mod h1:skftYndyTOU0cNVp491NSoiBJj96eABC2i8ipPVqRYU=
+github.com/reiver/space-base v0.0.0-20250701135425-9927c627eb50 h1:mjNHfqoHdayqSJQpOIfwB2R1PCZgXT1KLrj/Ae31a+U=
+github.com/reiver/space-base v0.0.0-20250701135425-9927c627eb50/go.mod h1:gelYYo3eyMe8Nky3QpClhbzZy1T5wy7IquZN4R1VKR4=

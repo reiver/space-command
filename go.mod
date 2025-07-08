@@ -1,6 +1,6 @@
 module github.com/reiver/space-command
 
-go 1.23
+go 1.24.3
 
 require (
 	github.com/reiver/go-erorr v0.0.0-20240801233437-8cbde6d1fa3f
@@ -14,4 +14,5 @@ require (
 	github.com/reiver/go-lck v0.0.0-20240808133902-b56df221c39f // indirect
 	github.com/reiver/go-path v0.0.0-20240327181650-5f2ee05890d8 // indirect
 	github.com/reiver/go-pathmatch v1.0.1-0.20240802004530-0dc31d85afa8 // indirect
+	github.com/reiver/space-base v0.0.0-20250701135425-9927c627eb50 // indirect
 )
