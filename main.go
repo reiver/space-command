@@ -1,28 +1,32 @@
 package main
 
 import (
-	"fmt"
 	"net"
+
+	"github.com/reiver/space-command/srv/log"
 )
 
 func main() {
-	fmt.Println("space-command ⚡")
+	log := logsrv.Prefix("main").Begin()
+	defer log.End()
+
+	log.Debug("space-command ⚡")
 
 	var beacondaemon <-chan error
 	{
 		// 239.83.80.67 (0xEF535043)
 		var multicastIPAddress net.IP = net.IPv4(239, 'S', 'P', 'C')
-		fmt.Printf("multicast ip-address: %v\n", multicastIPAddress)
+		log.Debug("multicast ip-address: ", multicastIPAddress)
 
 		// 21328 (0x5350)
 		var udpPort uint16 = (uint16('S') << 8) | uint16('P')
-		fmt.Printf("UDP port: %v (0x%X)\n", udpPort, udpPort)
+		log.Debugf("UDP port: %v (0x%X)", udpPort, udpPort)
 
 		var multicastUDPAddress = net.UDPAddr{
 			IP: multicastIPAddress,
 			Port: int(udpPort),
 		}
-		fmt.Printf("UDP address: %v\n", &multicastUDPAddress)
+		log.Debug("UDP address: ", &multicastUDPAddress)
 
 		beacondaemon = beaconserve(&multicastUDPAddress)
 	}
@@ -31,7 +35,7 @@ func main() {
 		var err error
 		select {
 		case err = <-beacondaemon:
-			fmt.Printf("beacon-daemon lost: %s\n", err)
+			log.Error("beacon-daemon lost: ", err)
 //		case err = <-httpdaemon:
 //			log.Errorf("http-daemon lost: %s", err)
 		}
